@@ -1,4 +1,5 @@
 FROM ubuntu
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" >> /etc/apt/sources.list
 RUN apt-get -y update
 RUN apt-get install -y postgresql postgresql-contrib && service postgresql start && sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';" && sudo -u postgres createdb liferaydb
 RUN echo "" >> /var/lib/postgresql/.psql_history
